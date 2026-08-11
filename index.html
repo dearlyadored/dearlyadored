@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dearly Adored</title>
+  <meta name="description" content="Dearly Adored — 마음을 다독이는 AI 그림책, 아트, 그리고 느린 영감." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream:#f7f2ea;
+      --ivory:#fffdf9;
+      --beige:#e8dccd;
+      --sand:#cfb79f;
+      --brown:#725844;
+      --deep:#3f332b;
+      --muted:#8f8177;
+      --line:rgba(92,72,58,.16);
+      --shadow:0 18px 50px rgba(75,54,39,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ivory);color:var(--deep);font-family:'Noto Sans KR',sans-serif;line-height:1.7}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brown);font-weight:600}
+    .serif{font-family:'DM Serif Display',serif}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,253,249,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:'DM Serif Display',serif;font-size:1.7rem;letter-spacing:.02em}
+    .menu{display:flex;gap:28px;font-size:.94rem;color:#5f5148}
+    .menu a:hover{color:var(--brown)}
+    .hero{padding:78px 0 54px;background:linear-gradient(180deg,#fffdf9 0%,#f8f2ea 100%)}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+    .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(3.2rem,7vw,6.9rem);line-height:.94;margin:14px 0 24px;font-weight:400;letter-spacing:-.03em}
+    .hero h1 em{font-weight:400;color:var(--brown)}
+    .hero p{font-size:1.05rem;color:#6f6259;max-width:620px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:999px;border:1px solid var(--brown);font-size:.93rem;transition:.2s}
+    .btn.primary{background:var(--brown);color:white}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-art{min-height:560px;border-radius:34px;background:linear-gradient(145deg,#e8d7c5,#fff9f2 55%,#dbc4ad);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+    .orb{position:absolute;border-radius:50%;filter:blur(1px);opacity:.7}
+    .o1{width:250px;height:250px;background:#fff6e9;top:58px;left:52px}
+    .o2{width:280px;height:280px;background:#cbb096;right:-40px;bottom:16px;opacity:.48}
+    .frame{position:absolute;inset:70px 62px 58px;border:1px solid rgba(87,63,46,.23);border-radius:180px 180px 30px 30px;background:rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;text-align:center;padding:42px}
+    .frame .quote{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1.25;color:#5e493a}
+    .frame small{display:block;margin-top:18px;font-family:'Noto Sans KR';font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#8c7564}
+    section{padding:94px 0}
+    .section-head{max-width:720px;margin-bottom:42px}
+    .section-head h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(2.4rem,4vw,4.1rem);line-height:1.08;margin:10px 0 16px}
+    .section-head p{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:white;box-shadow:0 8px 24px rgba(66,48,36,.05)}
+    .card-visual{height:250px;background:linear-gradient(150deg,#efe4d7,#fff 60%,#d9c1aa);display:flex;align-items:center;justify-content:center}
+    .card-visual span{font-family:'DM Serif Display',serif;font-size:2rem;color:#725844}
+    .card-body{padding:24px}
+    .card h3{font-size:1.1rem;margin:0 0 8px}
+    .card p{font-size:.91rem;color:var(--muted);margin:0}
+    .story{background:var(--cream)}
+    .story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
+    .portrait{min-height:500px;border-radius:30px;background:linear-gradient(160deg,#d7c3ae,#f7eee4 55%,#b9987d);position:relative;overflow:hidden}
+    .portrait:after{content:'Dearly Adored';font-family:'DM Serif Display',serif;position:absolute;right:24px;bottom:20px;font-size:1.8rem;color:rgba(75,55,41,.75)}
+    .story-copy h2{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,4vw,4rem);line-height:1.08;font-weight:400;margin:8px 0 20px}
+    .story-copy p{color:#6e6259}
+    .quote-block{margin-top:28px;padding:22px 24px;border-left:3px solid var(--sand);background:rgba(255,255,255,.55);border-radius:0 18px 18px 0;font-family:'DM Serif Display',serif;font-size:1.3rem;color:#5c4a3e}
+    .newsletter{padding:0 0 96px}
+    .newsletter-box{background:#4c3a2f;color:#fff7ef;border-radius:30px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+    .newsletter h3{font-family:'DM Serif Display',serif;font-size:2.3rem;font-weight:400;margin:6px 0 10px}
+    .newsletter p{margin:0;color:#dfd2c7}
+    footer{padding:34px 0 48px;border-top:1px solid var(--line);color:#82746a;font-size:.88rem}
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .social{display:flex;gap:18px}
+    @media(max-width:860px){
+      .menu{display:none}.hero-grid,.story-grid,.newsletter-box{grid-template-columns:1fr}.hero{padding-top:48px}.hero-art{min-height:430px}.cards{grid-template-columns:1fr}.newsletter-box{padding:34px}.frame{inset:48px 34px}.hero h1{font-size:4rem}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#top">Dearly Adored</a>
+      <nav class="menu" aria-label="main navigation">
+        <a href="#about">About</a>
+        <a href="#works">Works</a>
+        <a href="#rest">Rest</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Stories · Art · Gentle Living</div>
+          <h1>Made with<br><em>heart,</em><br>for your heart.</h1>
+          <p>Dearly Adored는 마음을 다독이는 이야기와 AI 아트, 그리고 조금 천천히 살아가는 영감을 담는 작은 창작 공간입니다.</p>
+          <div class="actions">
+            <a class="btn primary" href="#works">작품 보러가기</a>
+            <a class="btn" href="#about">Dearly Adored 이야기</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Dearly Adored hero art placeholder">
+          <div class="orb o1"></div><div class="orb o2"></div>
+          <div class="frame">
+            <div>
+              <div class="quote">A quiet place<br>for stories,<br>art & healing.</div>
+              <small>Dearly Adored Studio</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="works">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Selected Works</div>
+          <h2>Stories made to stay<br>in the heart.</h2>
+          <p>아이의 마음, 어른의 쉼, 그리고 일상 속 작은 감정을 담은 Dearly Adored의 작업들입니다.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-visual"><span>Hoya’s Volcano</span></div>
+            <div class="card-body">
+              <h3>호야의 마음에 화산이 펑</h3>
+              <p>화가 나는 순간을 이해하고 표현하는 방법을 따뜻하게 풀어낸 어린이 감정 그림책.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-visual"><span>A Pause for the Soul</span></div>
+            <div class="card-body">
+              <h3>마음의 쉼표</h3>
+              <p>바쁜 하루 사이, 잠시 멈추어 마음을 들여다보는 어른을 위한 작은 휴식 같은 이야기.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-visual"><span>The Light Within</span></div>
+            <div class="card-body">
+              <h3>Inner Peace Series</h3>
+              <p>사람과 기술, 빛과 감정을 연결하는 AI 아트 시리즈. 조용하지만 오래 남는 장면을 만듭니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="about">
+      <div class="wrap story-grid">
+        <div class="portrait"></div>
+        <div class="story-copy">
+          <div class="eyebrow">About Dearly Adored</div>
+          <h2>좋아하는 것을<br>다시 좋아하게 되는 시간.</h2>
+          <p>Dearly Adored는 ‘사랑받는 존재’라는 뜻에서 시작했습니다. 아이에게는 감정을 이해할 수 있는 이야기로, 어른에게는 잠시 멈출 수 있는 문장과 이미지로 다가가고 싶습니다.</p>
+          <p>AI는 도구일 뿐, 창작의 시작과 끝에는 언제나 사람의 경험과 마음이 있다고 믿습니다. 그래서 이곳의 작업은 기술보다 감정, 속도보다 온기, 완벽함보다 진심을 더 중요하게 생각합니다.</p>
+          <div class="quote-block">“May you find something here that feels like a small light on a long day.”</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rest">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Rest in Your Life</div>
+          <h2>마음이 쉬는 시간.</h2>
+          <p>짧은 영상, 글, 오디오와 함께 하루 중 몇 분이라도 마음을 내려놓는 시간을 만들어보세요.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="card-visual"><span>Pause</span></div><div class="card-body"><h3>짧은 쉼</h3><p>하루 1분, 호흡과 문장으로 마음의 속도를 낮추는 짧은 콘텐츠.</p></div></article>
+          <article class="card"><div class="card-visual"><span>Listen</span></div><div class="card-body"><h3>오디오 & 영상</h3><p>얼굴을 드러내지 않고도 편안하게 들을 수 있는 감성적인 영상과 이야기.</p></div></article>
+          <article class="card"><div class="card-visual"><span>Journal</span></div><div class="card-body"><h3>마음 기록</h3><p>스스로를 조금 더 이해할 수 있도록 돕는 질문, 짧은 글, 그리고 작은 실천.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="contact">
+      <div class="wrap">
+        <div class="newsletter-box">
+          <div>
+            <div class="eyebrow" style="color:#d7c6b8">Stay Connected</div>
+            <h3>Dearly Adored의 새 이야기를 받아보세요.</h3>
+            <p>새 그림책, 전시, 영상과 조용한 영감을 가장 먼저 전해드릴게요.</p>
+          </div>
+          <a class="btn" style="border-color:#fff4e8;color:#fff4e8" href="mailto:hello@dearlyadored.com">hello@dearlyadored.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>© 2026 Dearly Adored. All rights reserved.</div>
+      <div class="social">
+        <a href="https://dearlyadored.com">Website</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
